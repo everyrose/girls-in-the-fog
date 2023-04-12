@@ -1,0 +1,177 @@
+[gd_scene load_steps=14 format=3 uid="uid://btb4ctjol58os"]
+
+[ext_resource type="Texture2D" uid="uid://bc37b61ndjkbs" path="res://assets/sprites/scene.png" id="1_4bhr8"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_dx4wd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80gmg"]
+size = Vector2(5, 73.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_disk3"]
+size = Vector2(65, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8d00"]
+size = Vector2(165, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftkwq"]
+size = Vector2(60, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5aqvo"]
+size = Vector2(4, 73)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbbyn"]
+size = Vector2(165, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dpslj"]
+size = Vector2(5.75, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5hmi"]
+size = Vector2(5.75, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4r4xf"]
+size = Vector2(6.4375, 18.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27ssb"]
+size = Vector2(6.4375, 18.5)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_svxej"]
+vertices = PackedVector2Array(-87, -22, -144, -24, -145, -84, -2, -85, -2, -22, -56, -20, -87, 59, -57, 57, -40, 39, -3, 40, -3, 99, -43, 57, -144, 95, -104, 59, -144, 41, -106, 39)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 4, 5), PackedInt32Array(6, 0, 5, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(7, 11, 10, 12, 6), PackedInt32Array(13, 6, 12), PackedInt32Array(13, 12, 14, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-145, -84, -2, -85, -2, -22, -56, -20, -57, 57, -43, 57, -40, 39, -3, 40, -3, 99, -144, 95, -144, 41, -106, 39, -104, 59, -87, 59, -87, -22, -144, -24)])
+
+[node name="main" type="Node2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+script = ExtResource("1_dx4wd")
+metadata/_edit_lock_ = true
+
+[node name="Line2D" type="Line2D" parent="." groups=["playerLine"]]
+z_index = 2
+points = PackedVector2Array(4, 46)
+width = 5.0
+default_color = Color(0.886275, 0.0823529, 0.454902, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2, 1)
+zoom = Vector2(2.5, 2.5)
+metadata/_edit_lock_ = true
+
+[node name="level" type="Node" parent="."]
+
+[node name="level sprite" type="Sprite2D" parent="level"]
+texture_filter = 1
+texture = ExtResource("1_4bhr8")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="level/level sprite"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level/level sprite/StaticBody2D"]
+position = Vector2(-154, -52.75)
+shape = SubResource("RectangleShape2D_80gmg")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="level/level sprite/StaticBody2D"]
+position = Vector2(-124.5, 9)
+shape = SubResource("RectangleShape2D_disk3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="level/level sprite/StaticBody2D"]
+position = Vector2(-73.5, -99)
+shape = SubResource("RectangleShape2D_g8d00")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="level/level sprite/StaticBody2D"]
+position = Vector2(-22, 9)
+shape = SubResource("RectangleShape2D_ftkwq")
+metadata/_edit_lock_ = true
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="level/level sprite/StaticBody2D/CollisionShape2D4"]
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="level/level sprite/StaticBody2D"]
+position = Vector2(6, -52.5)
+shape = SubResource("RectangleShape2D_5aqvo")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="level/level sprite/StaticBody2D"]
+position = Vector2(-74.5, 103)
+shape = SubResource("RectangleShape2D_jbbyn")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="level/level sprite/StaticBody2D"]
+position = Vector2(-153.875, 64)
+shape = SubResource("RectangleShape2D_dpslj")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="level/level sprite/StaticBody2D"]
+position = Vector2(5, 64)
+shape = SubResource("RectangleShape2D_r5hmi")
+metadata/_edit_lock_ = true
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="level/level sprite/StaticBody2D/CollisionShape2D8"]
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="level/level sprite/StaticBody2D"]
+position = Vector2(-49.2188, 43.75)
+shape = SubResource("RectangleShape2D_4r4xf")
+metadata/_edit_lock_ = true
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="level/level sprite/StaticBody2D/CollisionShape2D9"]
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="level/level sprite/StaticBody2D"]
+position = Vector2(-95, 43)
+shape = SubResource("RectangleShape2D_27ssb")
+metadata/_edit_lock_ = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="level"]
+navigation_polygon = SubResource("NavigationPolygon_svxej")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 333.0
+offset_top = 229.0
+offset_right = -333.0
+offset_bottom = -229.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main menu"
+horizontal_alignment = 1
+
+[node name="HostButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join"
+
+[node name="AddressEntry" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Enter address to join"
+alignment = 1
+
+[node name="JoinButton2" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "showOverlay"
+
+[node name="spawning position" type="Node2D" parent="."]
+position = Vector2(-51, -55)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="spawning position"]
+_spawnable_scenes = PackedStringArray("res://scenes/player.tscn")
+spawn_path = NodePath("../..")
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton2" to="." method="_on_join_button_2_pressed"]

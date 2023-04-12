@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu6ilai6okhds"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_3ve57"]
+[ext_resource type="Texture2D" uid="uid://dvngt75b5lqsc" path="res://assets/sprites/girl.png" id="2_wknqt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5qfdp"]
+radius = 6.08276
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_y3t35"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+
+[node name="player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_3ve57")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("CircleShape2D_5qfdp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(-1, -16)
+texture = ExtResource("2_wknqt")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_y3t35")
+
+[node name="Label" type="Label" parent="."]
+z_index = 2
+offset_right = 40.0
+offset_bottom = 23.0
+text = "text"
+
+[connection signal="synchronized" from="MultiplayerSynchronizer" to="." method="_on_multiplayer_synchronizer_synchronized"]
